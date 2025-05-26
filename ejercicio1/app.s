@@ -51,15 +51,16 @@ loop0:
 
 	//---------------------------------------------------------------
 	// Infinite Loop
-	
-    mov x0, x20       // <- 🔧 restaurar framebuffer base
-    mov x1, #320      // centro x
-    mov x2, #240      // centro y
-    mov x3, #50       // radio
-    movz x4, 0x0000, lsl 16
-    movk x4, 0x00FF, lsl 0 // azul: 0x000000FF
-    bl draw_circle
 
+	//SOL
+    mov x0, x20       // <- 🔧 restaurar framebuffer base
+    mov x1, #610      // centro x
+    mov x2, #15      // centro y
+    mov x3, #80       // radio
+    movz x4, 0xFFFF, lsl 16
+    movk x4, 0xFF00, lsl 0 // amarillo: 0xFFFFFF00
+    bl draw_circle
+	
 
 InfLoop:
 	b InfLoop
