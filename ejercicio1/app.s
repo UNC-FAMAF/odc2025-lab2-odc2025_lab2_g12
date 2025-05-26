@@ -51,8 +51,8 @@ loop0:
 
 	//---------------------------------------------------------------
 	// Infinite Loop
-
-        mov x0, x20       // <- 🔧 restaurar framebuffer base
+	
+    mov x0, x20       // <- 🔧 restaurar framebuffer base
     mov x1, #320      // centro x
     mov x2, #240      // centro y
     mov x3, #50       // radio

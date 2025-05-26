@@ -34,7 +34,8 @@ draw_circle:
     b.ge .skip_pixel
 
     // calcular offset: dirección del pixel
-    mul x16, x25, #640
+    mov x17, #640
+    mul x16, x25, x17
     add x16, x16, x26
     lsl x16, x16, #2
     add x16, x20, x16
