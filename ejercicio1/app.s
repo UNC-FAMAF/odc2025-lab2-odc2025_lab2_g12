@@ -7,14 +7,17 @@
 	.equ GPIO_GPLEV0,    0x34
 
 	.globl main
-
+	.extern draw_circle
 main:
+	mov x20, x0         // Guarda la dirección base del framebuffer en x20
+	mov x0, x20         // framebuffer base
+
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 
-	movz x10, 0xC7, lsl 16
-	movk x10, 0x1585, lsl 00
+	movz x10, 0xFFAD, lsl 16
+	movk x10, 0xD8E6, lsl 00
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
@@ -48,6 +51,15 @@ loop0:
 
 	//---------------------------------------------------------------
 	// Infinite Loop
+
+        mov x0, x20       // <- 🔧 restaurar framebuffer base
+    mov x1, #320      // centro x
+    mov x2, #240      // centro y
+    mov x3, #50       // radio
+    movz x4, 0x0000, lsl 16
+    movk x4, 0x00FF, lsl 0 // azul: 0x000000FF
+    bl draw_circle
+
 
 InfLoop:
 	b InfLoop
