@@ -8,6 +8,9 @@
 
 	.globl main
 	.extern draw_circle
+	.extern draw_rectangle
+	.extern coord_to_addr
+
 main:
 	mov x20, x0         // Guarda la dirección base del framebuffer en x20
 	mov x0, x20         // framebuffer base
@@ -60,7 +63,11 @@ loop0:
     movz x4, 0xFFFF, lsl 16
     movk x4, 0xFF00, lsl 0 // amarillo: 0xFFFFFF00
     bl draw_circle
-	
+
+	mov x0, x20      //
+	bl draw_snoopy   // 
+
+
 
 InfLoop:
 	b InfLoop
