@@ -75,68 +75,307 @@ draw_rectangle:
 
 .global draw_snoopy
 draw_snoopy:
-    // x0: framebuffer base (viene del caller, ej. app.s)
 
-    // CASA ROJA
+// BASE CASA ROJA
     // creo stack frame y guardo registros
     sub sp, sp, #32             
     stp x29, x30, [sp, #0]      // Guardar FP, LR de draw_snoopy
     str x20, [sp, #16]          // Guardar x20 de main (el fb base original)
-    
-    // rectangulo 1
-    mov x1, #250    // x
-    mov x2, #420    // y
-    mov x3, #140     // ancho
+
+  // casa 
+    mov x1, #230    // x
+    mov x2, #360    // y
+    mov x3, #180     // ancho
     mov x4, #60       // alto
     movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
+    movk x5, 0x0000, lsl 0  // rojo
+    bl draw_rectangle
+
+  // techo
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #200    // x
+    mov x2, #340    // y
+    mov x3, #240     // ancho
+    mov x4, #20       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #210    // x
+    mov x2, #320    // y
+    mov x3, #220     // ancho
+    mov x4, #20       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0x0000, lsl 0  
     bl draw_rectangle
 
     ldr x0, [sp, #16]   // restaurar framebuffer base  
     mov x1, #220    // x
-    mov x2, #400    // y
+    mov x2, #300    // y
     mov x3, #200     // ancho
     mov x4, #20       // alto
     movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
+    movk x5, 0x0000, lsl 0
     bl draw_rectangle
 
-    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    ldr x0, [sp, #16]  
     mov x1, #230    // x
-    mov x2, #380    // y
+    mov x2, #280    // y
     mov x3, #180     // ancho
     mov x4, #20       // alto
     movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
+    movk x5, 0x0000, lsl 0 
     bl draw_rectangle
 
-    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    ldr x0, [sp, #16]
     mov x1, #240    // x
-    mov x2, #360    // y
+    mov x2, #260    // y
     mov x3, #160     // ancho
     mov x4, #20       // alto
     movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
+    movk x5, 0x0000, lsl 0
     bl draw_rectangle
 
-    ldr x0, [sp, #16]   // restaurar framebuffer base  
-    mov x1, #250    // x
-    mov x2, #340    // y
-    mov x3, #140     // ancho
-    mov x4, #20       // alto
-    movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
-    bl draw_rectangle
+// BORDE CASA
+  // horizontales
+    ldr x0, [sp, #16] 
+    mov x1, #240    // x
+    mov x2, #260    // y
+    mov x3, #160     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
 
-    ldr x0, [sp, #16]   // restaurar framebuffer base  
-    mov x1, #260    // x
+    bl draw_rectangle
+    ldr x0, [sp, #16]  
+    mov x1, #230    // x
+    mov x2, #280    // y
+    mov x3, #180     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16 //marron
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle   
+
+    ldr x0, [sp, #16] 
+    mov x1, #220    // x
+    mov x2, #300    // y
+    mov x3, #200     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16] 
+    mov x1, #210    // x
     mov x2, #320    // y
-    mov x3, #120     // ancho
-    mov x4, #20       // alto
-    movz x5, 0xFFFF, lsl 16
-    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
+    mov x3, #220     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #200    // x
+    mov x2, #340    // y
+    mov x3, #240     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #200    // x
+    mov x2, #360    // y
+    mov x3, #240     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+
+  // verticales
+    ldr x0, [sp, #16] 
+    mov x1, #236    // x
+    mov x2, #265    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
     bl draw_rectangle
 
+    ldr x0, [sp, #16] 
+    mov x1, #400    // x
+    mov x2, #265    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+
+    ldr x0, [sp, #16] 
+    mov x1, #226    // x
+    mov x2, #285    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #410    // x
+    mov x2, #285    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #215    // x
+    mov x2, #305    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #420    // x
+    mov x2, #305    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #205    // x
+    mov x2, #325    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #430    // x
+    mov x2, #325    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+    
+    ldr x0, [sp, #16] 
+    mov x1, #195    // x
+    mov x2, #345    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #440    // x
+    mov x2, #345    // y
+    mov x3, #5     // ancho
+    mov x4, #20      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #225    // x
+    mov x2, #360    // y
+    mov x3, #5     // ancho
+    mov x4, #60      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #410    // x
+    mov x2, #360    // y
+    mov x3, #5     // ancho
+    mov x4, #60      // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+// SOMBRA TECHO
+    ldr x0, [sp, #16]  
+    mov x1, #230    // x
+    mov x2, #365    // y
+    mov x3, #180     // ancho
+    mov x4, #6       // alto
+    movz x5, 0x00AF, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+// SNOOPY 
+  // 1.
+    ldr x0, [sp, #16]  
+    mov x1, #250    // x
+    mov x2, #225    // y
+    mov x3, #110     // ancho
+    mov x4, #35       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle 
+  
+  // 2.
+    ldr x0, [sp, #16]  
+    mov x1, #360    // x
+    mov x2, #245    // y
+    mov x3, #35     // ancho
+    mov x4, #15       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle
+
+  // 3.
+    ldr x0, [sp, #16]  
+    mov x1, #380    // x
+    mov x2, #225    // y
+    mov x3, #15     // ancho
+    mov x4, #20       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle 
+
+  // 4.
+    ldr x0, [sp, #16]  
+    mov x1, #260    // x
+    mov x2, #185    // y
+    mov x3, #30     // ancho
+    mov x4, #40       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle 
+
+  // 5.
+    ldr x0, [sp, #16]  
+    mov x1, #310    // x
+    mov x2, #215    // y
+    mov x3, #50     // ancho
+    mov x4, #10       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle 
+
+  // 5.
+    ldr x0, [sp, #16]  
+    mov x1, #310    // x
+    mov x2, #260    // y
+    mov x3, #35     // ancho
+    mov x4, #10       // alto
+    movz x5, 0xFFFF, lsl 16
+    movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle
+
+//FIN
     ldr x20, [sp, #16]          // Restaurar x20 de main
     ldp x29, x30, [sp, #0]      // Restaurar FP, LR de draw_snoopy
     add sp, sp, #32             // Destruir stack frame
