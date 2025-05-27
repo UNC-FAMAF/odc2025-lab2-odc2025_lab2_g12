@@ -4,7 +4,7 @@
 
 .global coord_to_addr
 coord_to_addr:
-    // x1 es y
+    // x1 es x
     // x2 es y
     mov x13, #640       // X13 = ancho de pantalla
     mul x14, x2, x13    // X14 = y * ancho de pantalla
@@ -64,14 +64,16 @@ draw_rectangle:
 
 draw_snoopy:
     // x0: framebuffer base (viene del caller, ej. app.s)
+    
+    // CASA ROJA
 
-    // RECTÁNGULO BLANCO EN EL CENTRO
-    mov x1, #320        // x
-    mov x2, #240        // y
-    mov x3, #40         // ancho
-    mov x4, #20         // alto
+    // rectangulo1
+    mov x1, #240    // x
+    mov x2, #380    // y
+    mov x3, #160     // ancho
+    mov x4, #100       // alto
     movz x5, 0xFFFF, lsl 16
-    movk x5, 0xFFFF, lsl 0    // blanco real: 0xFFFFFFFF
+    movk x5, 0x0000, lsl 0  // rojo: 0xFFFF0000
     bl draw_rectangle
 
     ret

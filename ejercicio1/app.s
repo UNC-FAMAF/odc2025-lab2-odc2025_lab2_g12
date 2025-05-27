@@ -11,6 +11,8 @@
 	.extern draw_rectangle
 	.extern coord_to_addr
 	.extern background
+	.extern draw_snoopy
+
 main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 
@@ -28,10 +30,8 @@ main:
     bl draw_circle
 
 	// DIBUJO DE SNOOPY
-	mov x0, x20      //
-	bl draw_snoopy   // 
-
-
+	mov x0, x20      
+	bl draw_snoopy   
 
 InfLoop:
 	b InfLoop
