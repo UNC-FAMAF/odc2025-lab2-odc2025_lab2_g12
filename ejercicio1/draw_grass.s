@@ -1,89 +1,411 @@
 	.equ SCREEN_WIDTH,   640
 	.equ SCREEN_HEIGHT,   480
-
+    .equ BITS_PER_PIXEL , 32
 	.extern draw_rectangle
-    .global draw_grass
-    .global draw_single_grass_hair
-
-	.section .text
 
     // Cubre desde la coordenada (0, 419) hasta (639, 479), es decir, 61 píxeles de alto
+.global draw_grass
 draw_grass:
+    sub sp, sp, #32             
+    stp x29, x30, [sp, #0]      // Guardar FP, LR de draw_snoopy
+    str x20, [sp, #16]          // Guardar x20 de main (el fb base original)
+
     mov     x1, #0            // x1 = x inicial
     mov     x2, #419          // x2 = y inicial
     mov     x3, #SCREEN_WIDTH // x3 = ancho = SCREEN_WIDTH = 640
     mov     x4, #61           // x4 = alto = 61
-    mov     w5, #0x00FF00     // x5 = color verde
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    // llamada a draw_rectangle(x0, x1, x2, x3, x4, x5)
-    bl      draw_rectangle
+    // Dibujar pastitos 
+    //PRIMERO
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #180    // x
+    mov x2, #415    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
 
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #178    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
 
-    // Línea izquierda que va subiendo hacia la derecha
-    mov     x1, #450     // x inicial
-    mov     x2, #419     // y inicial
-    mov     x3, #1       // dirX derecha
-    bl      draw_single_grass_hair
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #175    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
 
-    // Línea derecha que va subiendo hacia la izquierda
-    mov     x1, #450     // x inicial
-    mov     x2, #419     // y inicial
-    mov     x3, #-1      // dirX izquierda
-    bl      draw_single_grass_hair
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #171    // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    // Línea izquierda que va subiendo hacia la derecha
-    mov     x1, #90     // x inicial
-    mov     x2, #419     // y inicial
-    mov     x3, #1       // dirX derecha
-    bl      draw_single_grass_hair
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #166    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    // Línea derecha que va subiendo hacia la izquierda
-    mov     x1, #90     // x inicial
-    mov     x2, #419     // y inicial
-    mov     x3, #-1      // dirX izquierda
-    bl      draw_single_grass_hair
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #184    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    ret
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #187    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #191    // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    // Dibuja una línea diagonal de 20 píxeles a 45 grados
-    // x0 = framebuffer, x1 = x start, x2 = y start, x3 = dirX (1 o -1)
-    
-draw_single_grass_hair:
-    mov     x4, #20          // longitud de la línea
-    mov     w5, #0x004400    // color verde oscuro
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #196    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+    // TERMINO PRIMERO
+    // SEGUNDO
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #100    // x
+    mov x2, #415    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    mov     x19, #-4         // offsetX inicial (5 píxeles a la izquierda)
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #98    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-.outer_loop:
-    mov     x6, #0           // i = 0 (contador longitud línea)
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #95    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-.inner_loop:
-    // x = x1 + i * dirX + offsetX
-    mul     x7, x3, x6       // i * dirX
-    add     x7, x1, x7       // x1 + i * dirX
-    add     x7, x7, x19      // + offsetX para grosor
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #91    // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
 
-    // y = y1 - i
-    sub     x8, x2, x6
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #86    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+    // TERMINO SEGUNDO
+    // TERCERO
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #20    // x
+    mov x2, #440    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
 
-    // Calcular dirección en framebuffer
-    mov     x9, #SCREEN_WIDTH
-    mul     x10, x8, x9      // y * SCREEN_WIDTH
-    add     x10, x10, x7     // + x
-    lsl     x10, x10, #2     // * 4 bytes por píxel (RGBA)
-    add     x10, x0, x10     // framebuffer + offset
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #22    // x
+    mov x2, #435    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
 
-    str     w5, [x10]        // escribir color
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #25    // x
+    mov x2, #430    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
 
-    add     x6, x6, #1
-    cmp     x6, x4
-    blt     .inner_loop
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #29    // x
+    mov x2, #425    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
 
-    add     x19, x19, #1     // siguiente offset horizontal
-    cmp     x19, #5          // 6 porque queremos offsetX <= 5 (incluye 0)
-    blt     .outer_loop
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #34    // x
+    mov x2, #420    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
 
-    ret
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #16    // x
+    mov x2, #435    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #12    // x
+    mov x2, #430    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+    // TERMINO TERCERO
+    // CUARTO
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #480    // x
+    mov x2, #415    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #482    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #485    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #489    // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #494    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #478    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #475    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #471    // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #466    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+    // TERMINO CUARTO 
+    // QUINTO
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #550    // x
+    mov x2, #415    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #552    // x
+    mov x2, #410    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #555    // x
+    mov x2, #405    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #559   // x
+    mov x2, #400    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #564    // x
+    mov x2, #395    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF00, lsl 16   // verde oscuro
+    movk x5, 0x6400, lsl 0
+    bl draw_rectangle
+    // TERMINO QUINTO
+    //SEXTO
+        ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #380    // x
+    mov x2, #450    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #378    // x
+    mov x2, #445    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #375    // x
+    mov x2, #440    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #371    // x
+    mov x2, #435    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+   movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #366    // x
+    mov x2, #430    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #384    // x
+    mov x2, #445    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]   // restaurar framebuffer base  
+    mov x1, #387    // x
+    mov x2, #440    // y
+    mov x3, #5    // ancho
+    mov x4, #5       // alto
+    movz x5, 0xFF90, lsl 16   // verde oscuro
+    movk x5, 0xEE90, lsl 0
+    bl draw_rectangle
+    // TERMINO SEXTO
+
+    ldr x20, [sp, #16]          // Restaurar x20 de main
+    ldp x29, x30, [sp, #0]      // Restaurar FP, LR de draw_snoopy
+    add sp, sp, #32             // Destruir stack frame
 
     ret
