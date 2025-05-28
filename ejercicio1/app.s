@@ -36,6 +36,10 @@ main:
 	mov x0, x20      
 	bl draw_snoopy
 	
+	// DIBUJO DE NUBES
+	mov x0, x20      
+	bl draw_clouds
+	
 	//ODC
 	mov x0, x20
 	bl draw_odc2025
