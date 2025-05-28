@@ -146,8 +146,8 @@ draw_snoopy:
     mov x4, #5       // alto
     movz x5, 0x008B, lsl 16
     movk x5, 0x0000, lsl 0 
-
     bl draw_rectangle
+
     ldr x0, [sp, #16]  
     mov x1, #230    // x
     mov x2, #280    // y
@@ -313,6 +313,25 @@ draw_snoopy:
     movz x5, 0x00AF, lsl 16
     movk x5, 0x0000, lsl 0
     bl draw_rectangle 
+
+    ldr x0, [sp, #16] 
+    mov x1, #310    // x
+    mov x2, #265    // y
+    mov x3, #60     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
+    ldr x0, [sp, #16] 
+    mov x1, #260    // x
+    mov x2, #265    // y
+    mov x3, #30     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x008B, lsl 16
+    movk x5, 0x0000, lsl 0 
+    bl draw_rectangle
+
 
 // BASE SNOOPY 
   // 1.
