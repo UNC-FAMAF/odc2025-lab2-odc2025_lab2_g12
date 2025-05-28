@@ -314,7 +314,7 @@ draw_snoopy:
     movk x5, 0x0000, lsl 0
     bl draw_rectangle 
 
-// SNOOPY 
+// BASE SNOOPY 
   // 1.
     ldr x0, [sp, #16]  
     mov x1, #250    // x
@@ -365,15 +365,348 @@ draw_snoopy:
     movk x5, 0xFFFF, lsl 0
     bl draw_rectangle 
 
-  // 5.
+  // 6.
     ldr x0, [sp, #16]  
-    mov x1, #310    // x
+    mov x1, #330    // x
     mov x2, #260    // y
-    mov x3, #35     // ancho
+    mov x3, #20     // ancho
     mov x4, #10       // alto
     movz x5, 0xFFFF, lsl 16
     movk x5, 0xFFFF, lsl 0
+    bl draw_rectangle 
+
+// BORDE SNOOPY
+  // cara
+
+    ldr x0, [sp, #16]  
+    mov x1, #260    // x
+    mov x2, #230    // y
+    mov x3, #5     // ancho
+    mov x4, #15       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #250    // x
+    mov x2, #225    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #245    // x
+    mov x2, #230    // y
+    mov x3, #5     // ancho
+    mov x4, #25       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
     bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #255    // x
+    mov x2, #190    // y
+    mov x3, #5     // ancho
+    mov x4, #35       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #260    // x
+    mov x2, #185    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #285    // x
+    mov x2, #185    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #265    // x
+    mov x2, #180    // y
+    mov x3, #20     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #270    // x
+    mov x2, #175    // y
+    mov x3, #10     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #290    // x
+    mov x2, #190    // y
+    mov x3, #5     // ancho
+    mov x4, #35       // alto
+    movz x5, 0x0000, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #295    // x
+    mov x2, #225    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #300    // x
+    mov x2, #230    // y
+    mov x3, #5     // ancho
+    mov x4, #20       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #295    // x
+    mov x2, #245    // y
+    mov x3, #5     // ancho
+    mov x4, #10       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+  // panza y pies
+    ldr x0, [sp, #16]  
+    mov x1, #300    // x
+    mov x2, #220    // y
+    mov x3, #10     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #310    // x
+    mov x2, #215    // y
+    mov x3, #15     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #325    // x
+    mov x2, #210    // y
+    mov x3, #30     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #355    // x
+    mov x2, #215    // y
+    mov x3, #5     // ancho
+    mov x4, #10       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #360    // x
+    mov x2, #225    // y
+    mov x3, #5     // ancho
+    mov x4, #20       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #360    // x
+    mov x2, #240    // y
+    mov x3, #15     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #375    // x
+    mov x2, #230    // y
+    mov x3, #5     // ancho
+    mov x4, #20       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #380    // x
+    mov x2, #225    // y
+    mov x3, #5     // ancho
+    mov x4, #10       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle  
+
+    ldr x0, [sp, #16]  
+    mov x1, #385    // x
+    mov x2, #220    // y
+    mov x3, #5     // ancho
+    mov x4, #10       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #390    // x
+    mov x2, #220    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #395    // x
+    mov x2, #220    // y
+    mov x3, #5     // ancho
+    mov x4, #40       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #385    // x
+    mov x2, #235    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #250    // x
+    mov x2, #255    // y
+    mov x3, #75     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #355    // x
+    mov x2, #255    // y
+    mov x3, #40     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+  // mano
+
+    ldr x0, [sp, #16]  
+    mov x1, #350    // x
+    mov x2, #245    // y
+    mov x3, #5     // ancho
+    mov x4, #25       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #325    // x
+    mov x2, #260    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #330    // x
+    mov x2, #265    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle 
+
+    ldr x0, [sp, #16]  
+    mov x1, #335    // x
+    mov x2, #270    // y
+    mov x3, #15     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #340    // x
+    mov x2, #260    // y
+    mov x3, #5     // ancho
+    mov x4, #10       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #315    // x
+    mov x2, #245    // y
+    mov x3, #35     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #335    // x
+    mov x2, #255    // y
+    mov x3, #5     // ancho
+    mov x4, #5       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+  
+  // oreja
+
+    ldr x0, [sp, #16]  
+    mov x1, #260    // x
+    mov x2, #260    // y
+    mov x3, #5     // ancho
+    mov x4, #50       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #265    // x
+    mov x2, #260    // y
+    mov x3, #5     // ancho
+    mov x4, #50       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
+    ldr x0, [sp, #16]  
+    mov x1, #270    // x
+    mov x2, #265    // y
+    mov x3, #5     // ancho
+    mov x4, #40       // alto
+    movz x5, 0x0000, lsl 16 //negro
+    movk x5, 0x0000, lsl 0
+    bl draw_rectangle
+
 
 //FIN
     ldr x20, [sp, #16]          // Restaurar x20 de main
