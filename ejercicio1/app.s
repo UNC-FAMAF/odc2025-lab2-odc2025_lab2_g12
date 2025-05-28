@@ -12,6 +12,8 @@
 	.extern coord_to_addr
 	.extern background
 	.extern draw_snoopy
+	.extern draw_grass
+	.extern draw_grass_hair
 
 main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
@@ -32,6 +34,10 @@ main:
 	// DIBUJO DE SNOOPY
 	mov x0, x20      
 	bl draw_snoopy   
-
+	
+	// CESPED
+	mov x0, x20
+	bl draw_grass
+	
 InfLoop:
 	b InfLoop
