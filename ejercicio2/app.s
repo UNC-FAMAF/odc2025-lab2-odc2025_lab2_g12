@@ -11,12 +11,16 @@
 	.extern draw_grass
 	.extern draw_cloud
 	.extern funcion_delay
+	.extern sun
+	.extern draw_dream_1
+	.extern draw_dream_2
 	.global main
 
 main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 
+	
 	// FONDO 
 	mov x0, x20
 	bl background
@@ -24,11 +28,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+    mov x0, x20       
+	bl sun
 
 	// NUBE 
 	mov x0, x20
 	mov x1, #80    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #250    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -41,6 +55,8 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE 
 	mov x0, x20
@@ -49,7 +65,15 @@ main:
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
-	
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #260    // xc
+    mov x2, #90    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
 	movz x8, 0x3FA0, lsl 16 		// x8 -> Tiempo de delay 
 	movk x8, 0xFFFF, lsl 00		
     bl funcion_delay
@@ -62,11 +86,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE 
 	mov x0, x20
 	mov x1, #100    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #270    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -92,11 +126,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE 
 	mov x0, x20
 	mov x1, #110    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #280    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -122,11 +166,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE
 	mov x0, x20
 	mov x1, #120    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #290    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -161,11 +215,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE
 	mov x0, x20
 	mov x1, #130    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #300    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -200,11 +264,21 @@ main:
 	bl draw_snoopy
 	mov x0, x20
 	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
 	// NUBE
 	mov x0, x20
 	mov x1, #140    // xc
     mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #310    // xc
+    mov x2, #90    // yc
     movz x3, 0xFFFF, lsl 16 // color
     movk x3, 0xFFFF, lsl 0  //
     bl draw_cloud
@@ -236,6 +310,199 @@ main:
     movk x4, 0xFFFF, lsl 0  //
     bl draw_circle
 
+	movz x8, 0x3FA0, lsl 16 		// x8 -> Tiempo de delay 
+	movk x8, 0xFFFF, lsl 00		
+    bl funcion_delay
+
+	// SEPTIMO FRAME 
+	// FONDO
+	mov x0, x20
+	bl background
+	mov x0, x20
+	bl draw_snoopy
+	mov x0, x20
+	bl draw_grass
+	mov x0, x20       
+	bl sun
 	
+	// NUBE
+	mov x0, x20
+	mov x1, #150    // xc
+    mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #320    // xc
+    mov x2, #90    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// PENSAMIENTO 1
+	mov x0, x20
+	mov x1, #230    // xc
+    mov x2, #215    // yc
+    mov x3, #5   // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 2
+	mov x0, x20
+	mov x1, #215    // xc
+    mov x2, #205   // yc
+    mov x3, #7	  // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 3
+	mov x0, x20
+	mov x1, #200    // xc
+    mov x2, #190    // yc
+    mov x3, #10     // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PRE DREAM
+	mov x0, x20
+	mov x1, #160    // xc
+    mov x2, #170    // yc
+    mov x3, #12     // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	movz x8, 0x3FA0, lsl 16 		// x8 -> Tiempo de delay 
+	movk x8, 0xFFFF, lsl 00		
+    bl funcion_delay
+
+	// OCTAVO FRAME 
+	// FONDO
+	mov x0, x20
+	bl background
+	mov x0, x20
+	bl draw_snoopy
+	mov x0, x20
+	bl draw_grass
+	mov x0, x20       
+	bl sun
+	
+	// NUBE
+	mov x0, x20
+	mov x1, #160    // xc
+    mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #330    // xc
+    mov x2, #90    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// PENSAMIENTO 1
+	mov x0, x20
+	mov x1, #230    // xc
+    mov x2, #215    // yc
+    mov x3, #5   // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 2
+	mov x0, x20
+	mov x1, #215    // xc
+    mov x2, #205   // yc
+    mov x3, #7	  // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 3
+	mov x0, x20
+	mov x1, #200    // xc
+    mov x2, #190    // yc
+    mov x3, #10     // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 4
+	mov x0, x20
+	bl draw_dream_1
+
+	movz x8, 0x3FA0, lsl 16 		// x8 -> Tiempo de delay 
+	movk x8, 0xFFFF, lsl 00		
+    bl funcion_delay
+
+	// NOVENO FRAME
+	// FONDO
+	mov x0, x20
+	bl background
+	mov x0, x20
+	bl draw_snoopy
+	mov x0, x20
+	bl draw_grass
+	mov x0, x20       
+	bl sun
+	
+	// NUBE
+	mov x0, x20
+	mov x1, #170    // xc
+    mov x2, #50    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// NUBE 2
+	mov x0, x20
+	mov x1, #340    // xc
+    mov x2, #90    // yc
+    movz x3, 0xFFFF, lsl 16 // color
+    movk x3, 0xFFFF, lsl 0  //
+    bl draw_cloud
+
+	// PENSAMIENTO 1
+	mov x0, x20
+	mov x1, #230    // xc
+    mov x2, #215    // yc
+    mov x3, #5   // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 2
+	mov x0, x20
+	mov x1, #215    // xc
+    mov x2, #205   // yc
+    mov x3, #7	  // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 3
+	mov x0, x20
+	mov x1, #200    // xc
+    mov x2, #190    // yc
+    mov x3, #10     // r
+    movz x4, 0xFFFF, lsl 16 // color
+    movk x4, 0xFFFF, lsl 0  //
+    bl draw_circle
+
+	// PENSAMIENTO 5
+	mov x0, x20
+	bl draw_dream_2
+
+
+
+
 InfLoop:
 	b InfLoop
