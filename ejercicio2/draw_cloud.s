@@ -26,22 +26,56 @@ draw_cloud:
     mov x0, x20     // x20 local = framebuffer base
     mov x4, x23
 
-    add x1, x21, #0
-    add x2, x22, #0
-    mov x3, #15
+    add x1, x21, #0     // xc
+    add x2, x22, #10    // yc
+    mov x3, #10         // r
     bl draw_circle
 
-    add x1, x21, #25   // xc
-    add x2, x22, #0   // xy
-    mov x3, #20    // r
-    mov x4, x23
+    add x1, x21, #10     // xc
+    add x2, x22, #0    // yc
+    mov x3, #12         // r
     bl draw_circle
 
-    add x1, x21, #50
-    add x2, x22, #0
-    mov x3, #17
+    add x1, x21, #10     // xc
+    add x2, x22, #20    // yc
+    mov x3, #12         // r
     bl draw_circle
 
+    add x1, x21, #27     // xc
+    add x2, x22, #0    // yc
+    mov x3, #15         // r
+    bl draw_circle
+
+    add x1, x21, #27     // xc
+    add x2, x22, #20    // yc
+    mov x3, #15         // r
+    bl draw_circle
+
+    add x1, x21, #45     // xc
+    add x2, x22, #0    // yc
+    mov x3, #15         // r
+    bl draw_circle
+
+    add x1, x21, #45     // xc
+    add x2, x22, #20    // yc
+    mov x3, #15         // r
+    bl draw_circle
+
+    add x1, x21, #62     // xc
+    add x2, x22, #0    // yc
+    mov x3, #12         // r
+    bl draw_circle
+
+    add x1, x21, #62     // xc
+    add x2, x22, #20    // yc
+    mov x3, #12         // r
+    bl draw_circle
+
+    add x1, x21, #72     // xc
+    add x2, x22, #10    // yc
+    mov x3, #10         // r
+    bl draw_circle
+    
 //FIN
     ldp x22, x23, [sp, #32]     // Restaurar x22, x23
     ldp x20, x21, [sp, #16]     // Restaurar x20, x21
