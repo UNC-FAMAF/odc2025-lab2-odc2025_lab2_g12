@@ -43,7 +43,7 @@ draw_clouds:
     movk x5, 0xFFFF, lsl 0 
     bl draw_rectangle
 
-//4. NUBE MEDIO
+//4. NUBE DERECHA
  ldr x0, [sp, #16]   // restaurar framebuffer base  
     mov x1, #420 // x
     mov x2, #85    // y
