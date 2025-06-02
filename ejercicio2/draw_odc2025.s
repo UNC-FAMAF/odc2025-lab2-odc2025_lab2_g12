@@ -13,8 +13,8 @@ draw_odc2025:
         //LETRA 'O'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #342
-        mov x2, #370
+        mov x1, #130
+        mov x2, #150
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -23,8 +23,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #340
-        mov x2, #370
+        mov x1, #128
+        mov x2, #150
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -33,8 +33,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #346
-        mov x2, #370
+        mov x1, #134
+        mov x2, #150
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -43,8 +43,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #342
-        mov x2, #378
+        mov x1, #130
+        mov x2, #158
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -55,8 +55,8 @@ draw_odc2025:
         //LETRA 'd'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #352
-        mov x2, #374
+        mov x1, #140
+        mov x2, #154
         mov x3, #2
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -65,8 +65,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #350
-        mov x2, #374
+        mov x1, #138
+        mov x2, #154
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -75,8 +75,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #354
-        mov x2, #370
+        mov x1, #142
+        mov x2, #150
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -85,8 +85,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #352
-        mov x2, #378
+        mov x1, #140
+        mov x2, #158
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -96,8 +96,8 @@ draw_odc2025:
         //LETRA 'C'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #360
-        mov x2, #370
+        mov x1, #148
+        mov x2, #150
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -106,8 +106,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #358
-        mov x2, #370
+        mov x1, #146
+        mov x2, #150
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -116,8 +116,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #360
-        mov x2, #378
+        mov x1, #148
+        mov x2, #158
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -127,8 +127,8 @@ draw_odc2025:
         //LETRA '2'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #368
-        mov x2, #370
+        mov x1, #130
+        mov x2, #162
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -137,8 +137,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #368
-        mov x2, #374
+        mov x1, #130
+        mov x2, #166
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -147,8 +147,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #372
-        mov x2, #370
+        mov x1, #134
+        mov x2, #162
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -157,8 +157,8 @@ draw_odc2025:
 
         // Parte medio
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #370
-        mov x2, #374
+        mov x1, #132
+        mov x2, #166
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -167,8 +167,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #370
-        mov x2, #378
+        mov x1, #132
+        mov x2, #170
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -178,8 +178,8 @@ draw_odc2025:
         //LETRA '0'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #378
-        mov x2, #370
+        mov x1, #140
+        mov x2, #162
         mov x3, #2
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -188,8 +188,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #376
-        mov x2, #370
+        mov x1, #138
+        mov x2, #162
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -198,8 +198,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #380
-        mov x2, #370
+        mov x1, #142
+        mov x2, #162
         mov x3, #2
         mov x4, #10
         movz x5, 0x0000, lsl 16 //negro
@@ -208,8 +208,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #378
-        mov x2, #378
+        mov x1, #140
+        mov x2, #170
         mov x3, #2
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -219,8 +219,8 @@ draw_odc2025:
         //LETRA '2'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #384
-        mov x2, #370
+        mov x1, #146
+        mov x2, #162
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -229,8 +229,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #384
-        mov x2, #374
+        mov x1, #146
+        mov x2, #166
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -239,8 +239,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #388
-        mov x2, #370
+        mov x1, #150
+        mov x2, #162
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -249,8 +249,8 @@ draw_odc2025:
 
         // Parte medio
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #386
-        mov x2, #374
+        mov x1, #148
+        mov x2, #166
         mov x3, #2
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -259,8 +259,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #386
-        mov x2, #378
+        mov x1, #148
+        mov x2, #170
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -270,8 +270,8 @@ draw_odc2025:
         //LETRA '5'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #394
-        mov x2, #370
+        mov x1, #155
+        mov x2, #162
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -280,8 +280,8 @@ draw_odc2025:
 
         // Parte izquierda
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #392
-        mov x2, #370
+        mov x1, #154
+        mov x2, #162
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -290,8 +290,8 @@ draw_odc2025:
 
         // Parte derecha
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #396
-        mov x2, #374
+        mov x1, #157
+        mov x2, #166
         mov x3, #2
         mov x4, #6
         movz x5, 0x0000, lsl 16 //negro
@@ -300,8 +300,8 @@ draw_odc2025:
 
         // Parte medio
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #394
-        mov x2, #374
+        mov x1, #156
+        mov x2, #166
         mov x3, #2
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro
@@ -310,8 +310,8 @@ draw_odc2025:
 
         // Parte inferior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
-        mov x1, #392
-        mov x2, #378
+        mov x1, #154
+        mov x2, #170
         mov x3, #4
         mov x4, #2
         movz x5, 0x0000, lsl 16 //negro

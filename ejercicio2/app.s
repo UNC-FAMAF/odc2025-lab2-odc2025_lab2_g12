@@ -14,6 +14,7 @@
 	.extern sun
 	.extern draw_dream_1
 	.extern draw_dream_2
+	.extern draw_odc2025
 	.global main
 
 main:
@@ -501,7 +502,9 @@ main:
 	mov x0, x20
 	bl draw_dream_2
 
-
+	// CARTEL ODC
+	mov x0, x20
+	bl draw_odc2025
 
 
 InfLoop:
