@@ -10,6 +10,19 @@ draw_odc2025:
         stp x29, x30, [sp, #0]      // Guardar FP, LR de draw_snoopy
         str x20, [sp, #16]          // Guardar x20 de main (el fb base original)
 
+        // cuadro de fondo odc 2025
+        //1.
+        
+        ldr x0, [sp, #16]   // restaurar framebuffer base  
+        mov x1, #338
+        mov x2, #368
+        mov x3, #62
+        mov x4, #15
+        movz x5, 0x00ff, lsl 16 // color amarillo
+        movk x5, 0xff00, lsl 0
+        bl draw_rectangle
+
+
         //LETRA 'O'
         // Parte superior
         ldr x0, [sp, #16]   // restaurar framebuffer base  
