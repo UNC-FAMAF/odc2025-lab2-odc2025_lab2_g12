@@ -14,6 +14,7 @@
 	.extern draw_snoopy
 	.extern draw_grass
 	.extern draw_grass_hair
+	.extern draw_zzz
 	.extern draw_odc2025
 
 main:
@@ -48,6 +49,9 @@ main:
 	mov x0, x20
 	bl draw_grass
 
+	// CESPED
+	mov x0, x20
+	bl draw_zzz
 	
 	
 InfLoop:
