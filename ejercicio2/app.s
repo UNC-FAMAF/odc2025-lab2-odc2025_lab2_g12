@@ -502,6 +502,10 @@ main:
 	mov x0, x20
 	bl draw_dream_2
 
+	movz x8, 0x3FA0, lsl 16 		// x8 -> Tiempo de delay 
+	movk x8, 0xFFFF, lsl 00		
+    bl funcion_delay
+
 	// CARTEL ODC
 	mov x0, x20
 	bl draw_odc2025
