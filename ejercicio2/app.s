@@ -28,7 +28,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_1
     mov x0, x20       
 	bl sun
 
@@ -55,7 +55,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_2
 	mov x0, x20       
 	bl sun
 	
@@ -86,7 +86,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_3
 	mov x0, x20       
 	bl sun
 	
@@ -126,7 +126,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_2
 	mov x0, x20       
 	bl sun
 	
@@ -166,7 +166,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_1
 	mov x0, x20       
 	bl sun
 	
@@ -215,7 +215,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_2
 	mov x0, x20       
 	bl sun
 	
@@ -264,7 +264,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_3
 	mov x0, x20       
 	bl sun
 	
@@ -322,7 +322,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_2
 	mov x0, x20       
 	bl sun
 	
@@ -389,7 +389,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_1
 	mov x0, x20       
 	bl sun
 	
@@ -451,7 +451,7 @@ main:
 	mov x0, x20
 	bl draw_snoopy
 	mov x0, x20
-	bl draw_grass
+	bl draw_grass_2
 	mov x0, x20       
 	bl sun
 	
