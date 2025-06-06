@@ -23,8 +23,8 @@ ret
 .global background2
 background2:
     // x0: framebuffer base
-	movz x10, 0xFFAD, lsl 16    
-	movk x10, 0xD8FF, lsl 0
+	movz x10, 0xFF00, lsl 16    
+	movk x10, 0x0099, lsl 0
 
 	mov x2, SCREEN_HEIGH
 loop1_b2:
