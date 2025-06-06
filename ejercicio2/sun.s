@@ -11,7 +11,7 @@ sun:
     
     mov x1, #610      // centro x
     mov x2, #15      // centro y
-    mov x3, #80       // radio
+    mov x3, #100       // radio
     movz x4, 0xFFFF, lsl 16
     movk x4, 0xFF00, lsl 0 // amarillo: 0xFFFFFF00
     bl draw_circle
